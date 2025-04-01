@@ -4,27 +4,205 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* ---------------------------------
+   1. Infima Variable Overrides
+---------------------------------- */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Teal accent color from laika.finance */
+  --ifm-color-primary: #67e8f9;
+  --ifm-color-primary-dark: #4fdcdc;
+  --ifm-color-primary-darker: #3e3e3f;
+  --ifm-color-primary-darkest: #1e1e24;
+  --ifm-color-primary-light: #9ca3af;
+  --ifm-color-primary-lighter: #a1a1aa;
+  --ifm-color-primary-lightest: #c5c5c5;
+
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Match laika.finance background and text colors */
+  --ifm-background-color: #09090b;
+  --ifm-color-text: #e3e3e3;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Lighten them slightly (if desired) in dark mode or keep them the same */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #67e8f9;
+  --ifm-color-primary-dark: #4fdcdc;
+  --ifm-color-primary-darker: #3e3e3f;
+  --ifm-color-primary-darkest: #1e1e24;
+  --ifm-color-primary-light: #9ca3af;
+  --ifm-color-primary-lighter: #a1a1aa;
+  --ifm-color-primary-lightest: #c5c5c5;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --ifm-background-color: #09090b;
+  --ifm-color-text: #e3e3e3;
 }
+
+/* ---------------------------------
+   2. Global Page Styling
+---------------------------------- */
+body {
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-color-text);
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Hero section override: dark background & teal accent */
+.hero.hero--primary {
+  background: #1e1e24 !important;
+  color: #e3e3e3 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ---------------------------------
+   3. Docusaurus Layout Overrides
+---------------------------------- */
+
+/* Navbar (the top header in Docusaurus v2) */
+.navbar {
+  background-color: #1e1e24 !important;
+  color: #e3e3e3 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Footer container */
+.footer {
+  background-color: #1e1e24 !important;
+  color: #e3e3e3 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Main wrappers for doc or page content */
+.main-wrapper,
+.theme-doc-main,
+.theme-doc-content,
+.theme-doc-container,
+.theme-page {
+  background-color: #09090b !important;
+  color: #e3e3e3 !important;
+}
+
+/* Docs or blog pages */
+.theme-doc-page,
+.theme-blog-page,
+.theme-blog-list-page {
+  background-color: #09090b !important;
+  color: #e3e3e3 !important;
+}
+
+/* Markdown container (core doc content) */
+.theme-doc-markdown {
+  background-color: transparent !important;
+  color: #e3e3e3 !important;
+}
+
+/* ---------------------------------
+   4. Markdown / Content Overrides
+---------------------------------- */
+.markdown table,
+.markdown pre,
+.markdown code,
+.markdown blockquote {
+  background-color: #1e1e24 !important;
+  color: #e3e3e3 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
+}
+
+/* Docs sidebar menu */
+.theme-doc-sidebar-container,
+.theme-doc-sidebar-menu {
+  background-color: #1e1e24 !important;
+  color: #e3e3e3 !important;
+}
+
+/* ---------------------------------
+   5. Force Light Text on Common Elements
+---------------------------------- */
+p,
+h1, h2, h3, h4, h5, h6,
+li, dt, dd,
+span, div, section, article,
+button, input, select, textarea,
+.card, .card__header, .card__body, .card__footer,
+.alert, .alert--info, .alert--success, .alert--warning, .alert--danger,
+.container {
+  color: #e3e3e3 !important;
+  background-color: inherit; /* or #1e1e24 if you want every box dark */
+}
+
+/* ---------------------------------
+   6. Admonitions (info boxes)
+---------------------------------- */
+/* Docusaurus uses admonition blocks for callouts. Force them dark. */
+.theme-admonition {
+  background-color: #1e1e24 !important;
+  color: #e3e3e3 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.theme-admonition .theme-admonition__title {
+  color: #e3e3e3 !important;
+}
+.theme-admonition .theme-admonition__icon {
+  color: #e3e3e3 !important; /* ensures the icon color is visible */
+  fill: #e3e3e3 !important;  /* for SVG fill */
+}
+
+/* ---------------------------------
+   7. Icon & Copy Button Styling
+---------------------------------- */
+/* For copy code button in code blocks, etc. */
+.copyButton,
+.copyButton button,
+.copyButton svg {
+  background-color: #1e1e24 !important;
+  color: #e3e3e3 !important;
+  fill: #e3e3e3 !important;
+  border: 1px solid #3e3e3f !important;
+  transition: opacity 0.2s ease-in-out;
+}
+.copyButton:hover,
+.copyButton button:hover {
+  opacity: 0.8;
+}
+
+/* Force icons to be light if they have an .icon class or role=img */
+.icon,
+[role='img'],
+svg {
+  color: #e3e3e3 !important;
+  fill: #e3e3e3 !important;
+}
+
+/* If code block has a separate button container for icons, ensure it's dark */
+.theme-code-block .clean-btn,
+.theme-code-block .clipboard-button {
+  background-color: #1e1e24 !important;
+  color: #e3e3e3 !important;
+  fill: #e3e3e3 !important;
+}
+
+/* ---------------------------------
+   8. Link Styling
+---------------------------------- */
+a {
+  color: #67e8f9;
+  text-decoration: underline;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+/*
+ * If you see specific white or oddly-colored text/boxes:
+ * 1) Inspect them in DevTools
+ * 2) Add or modify an override with !important
+ */
